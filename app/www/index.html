@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <!-- need to include the whitelist meta tag above for cordova geolocation -->
     <title></title>
 
     <link rel="manifest" href="manifest.json">
@@ -26,6 +28,9 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- include the ngcordova js -->
+    <script src="js/ng-cordova.min.js"> </script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -37,40 +42,10 @@
     <ion-pane>
       <ion-header-bar class="bar-stable">
         <h1 class="title">Starter Senators</h1>
-        <button class="button button-positive" ng-click="newSearch()">Get My Senators</button>
+        <button class="button button-positive" ng-click="saveLocation()">Get My Device Location</button>
       </ion-header-bar>
-        <ion-content>
-        {{latitude}}
-        {{longitude}}
-        </ion-content>
-
-        <!-- add a script to pull up a modal -->
-      <script id="location-request.html" type="text/ng-template">
-        <div class = "modal">
-
-          <ion-header-bar class="bar-secondary">
-            <h1 class="title">Input Your Location</h1>
-            <button class="button button-clear button-positive" ng-click="cancelSearch()">Cancel</button>
-          </ion-header-bar>
-
-          <ion-content>
-          
-            <form ng-submit="runSearch(latitude, longitude)">
-              <div class="list">
-                <label class="item item-input">
-                  <input type="text" placeholder="What is your latitude?" ng-model="latitude">
-                </label>
-                <label class="item item-input">
-                  <input type="text" placeholder="What is your longitude?" ng-model="longitude">
-                </label>
-              </div>
-              <div class="padding">
-                <button type="submit" class="button" button-block button-positive">Submit My Location</button>
-              </div>
-            </form>
-          </ion-content>
-        </div>
-      </script>
+      <ion-content>
+      </ion-content>
 
     </ion-pane>
   </body>
