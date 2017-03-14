@@ -28,8 +28,8 @@ angular.module('starter', ['ionic'])
   };
 
   $scope.runSearch = function(latitude, longitude) {
-    $scope.latitude.push(latitude);
-    $scope.longitude.push(longitude);
+    $scope.latitude = latitude;
+    $scope.longitude = longitude;
     $scope.locationModal.hide();
 
   }
